@@ -1,0 +1,31 @@
+course_id,title_en,title_ar,level,delivery,duration_hours,language,prerequisites,min_grade,cost_qar,status,mandatory_for,skills
+LD-101,Preventive Maintenance Planning Fundamentals,أساسيات تخطيط الصيانة الوقائية,Introductory,Classroom,8,EN,,2,900,Active,,SK-01
+LD-102,CMMS Essentials for Maintenance Teams,أساسيات نظام إدارة الصيانة المحوسب,Introductory,Online,4,EN,,2,400,Active,,SK-04
+LD-103,Root Cause Analysis: 5-Whys and Fishbone,تحليل الأسباب الجذرية: أسلوب «لماذا الخمسة» ومخطط عظم السمكة,Intermediate,Workshop,8,EN,,3,1200,Active,,SK-03
+LD-104,Reliability-Centred Maintenance (RCM) Practitioner,الصيانة المرتكزة على الموثوقية (للممارسين),Advanced,Classroom,24,EN,LD-101,5,3800,Active,,SK-02
+LD-105,Maintenance Scheduling with Spreadsheets,جدولة الصيانة باستخدام الجداول الإلكترونية,Introductory,Classroom,6,EN,,2,600,Retired,,SK-01
+LD-106,Basic HSE Awareness,التوعية الأساسية بالصحة والسلامة والبيئة,Introductory,Online,3,EN+AR,,1,0,Active,All,SK-09
+LD-107,Fire Safety and Emergency Response,السلامة من الحرائق والاستجابة للطوارئ,Introductory,Classroom,4,EN+AR,,1,0,Active,All,SK-08
+LD-108,Permit-to-Work for Site Teams,تصاريح العمل لفرق المواقع,Intermediate,Classroom,6,EN+AR,,1,0,Active,Mesaieed Site;Ras Laffan Site,SK-05
+LD-109,Risk Assessment (HIRA) Workshop,ورشة تقييم المخاطر,Intermediate,Workshop,8,EN,,3,1300,Active,,SK-06
+LD-110,Incident Investigation for Officers and Supervisors,التحقيق في الحوادث للمسؤولين والمشرفين,Intermediate,Classroom,12,EN,LD-109,4,1800,Active,,SK-07
+LD-111,IFRS Fundamentals for Accountants,أساسيات المعايير الدولية للتقارير المالية للمحاسبين,Intermediate,Classroom,16,EN,,4,2400,Active,,SK-10
+LD-112,Month-End Close and Reconciliations,إقفال نهاية الشهر والمطابقات,Intermediate,Blended,8,EN,,3,1000,Active,,SK-11
+LD-113,Budgeting and Forecasting,إعداد الموازنات والتنبؤات المالية,Intermediate,Workshop,12,EN,,5,1800,Active,,SK-12
+LD-114,"Advanced IFRS: Revenue, Leases and Financial Instruments",المعايير الدولية للتقارير المالية المتقدمة: الإيرادات والإيجارات والأدوات المالية,Advanced,Classroom,24,EN,LD-111,5,3400,Active,,SK-10
+LD-115,Sourcing and Tendering Fundamentals,أساسيات التوريد وطرح المناقصات,Introductory,Classroom,12,EN,,3,1200,Active,,SK-13
+LD-116,Contract Management and Negotiation for Buyers,إدارة العقود والتفاوض للمشترين,Intermediate,Classroom,16,EN,LD-115,4,1900,Active,,SK-14;SK-15
+LD-117,Conflict of Interest and Procurement Ethics,تعارض المصالح وأخلاقيات المشتريات,Introductory,Online,2,EN+AR,,1,0,Active,Procurement & Supply Chain,SK-16
+LD-118,Cybersecurity Awareness,الوعي بالأمن السيبراني,Introductory,Online,2,EN+AR,,1,0,Active,All,SK-19
+LD-119,IT Service Desk and Ticket Handling,مكتب الخدمة وإدارة تذاكر الدعم,Introductory,Blended,12,EN,,2,1100,Active,,SK-17
+LD-120,Endpoint and Network Troubleshooting,استكشاف أخطاء الأجهزة والشبكات وإصلاحها,Intermediate,Classroom,16,EN,,3,1600,Active,,SK-18
+LD-121,Leading Your First Team,قيادة فريقك الأول,Intermediate,Classroom,16,EN,,4,1800,Active,,SK-20
+LD-122,Coaching and Giving Feedback,التوجيه وتقديم الملاحظات,Intermediate,Workshop,8,EN,,5,1400,Active,,SK-21
+LD-123,Operational Leadership for Managers,القيادة التشغيلية للمديرين,Advanced,Classroom,24,EN,LD-122,7,4200,Active,,SK-20;SK-22
+LD-124,Business Writing: English and Arabic,الكتابة المهنية بالإنجليزية والعربية,Intermediate,Workshop,8,EN+AR,,3,900,Active,,SK-23;SK-27
+LD-125,Presenting with Confidence,العرض والتقديم بثقة,Intermediate,Workshop,8,EN,,3,1000,Active,,SK-24
+LD-126,Presentation Skills Workshop,ورشة مهارات العرض والتقديم,Intermediate,Classroom,8,EN,,3,800,Retired,,SK-24
+LD-127,Excel for Work: Formulas and Tables,برنامج إكسل للعمل: الصيغ والجداول,Introductory,Online,6,EN,,1,300,Active,,SK-25
+LD-128,Excel Data Analysis and PivotTables,تحليل البيانات في إكسل والجداول المحورية,Intermediate,Blended,10,EN,LD-127,3,800,Active,,SK-25
+LD-129,Excel Macros and VBA Basics,وحدات الماكرو ولغة VBA في إكسل: مدخل,Intermediate,Classroom,12,EN,LD-127,4,1100,Retired,,SK-25
+LD-130,Project Management Basics,أساسيات إدارة المشاريع,Introductory,Classroom,16,EN,,4,1500,Active,,SK-26
