@@ -51,7 +51,11 @@ class TestPolicy(FreshDB):
         action = policy.plan("request_enrolment", {"employee_id": "E1011", "course_id": "LD-104", "session_id": "LD-104-S2"}, "E1011")
         self.assertEqual(action["rounds"], [["E1007"], ["E1068"]])
 
-    # Part 8: type test_when_the_manager_is_the_hr_head_one_round_is_enough here (see the guide).
+    def test_when_the_manager_is_the_hr_head_one_round_is_enough(self):
+        self.sql(CLEARED)
+        self.sql("UPDATE employees SET manager_id='E1068' WHERE employee_id='E1011'")
+        action = policy.plan("request_enrolment", {"employee_id": "E1011", "course_id": "LD-104", "session_id": "LD-104-S2"}, "E1011")
+        self.assertEqual(action["rounds"], [["E1068"]])
 
     def test_extra_arguments_from_the_model_are_dropped(self):
         action = policy.plan("request_enrolment", {"employee_id": "E1012", "course_id": "LD-103",
