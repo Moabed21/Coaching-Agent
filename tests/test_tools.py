@@ -15,8 +15,11 @@ class TestTools(FreshDB):
         self.assertEqual(tools.clean({"employee_id": "E1012", "actor": "E1068", "approved_by": "E1068"}),
                          {"employee_id": "E1012"})
 
-    # Part 5: type test_a_refusal_becomes_a_message_not_a_crash here (see the guide).
-
+    def test_a_refusal_becomes_a_message_not_a_crash(self):
+        # E1012 may not see E1014's learning record
+        reply = tools.call(tools.READS["get_learning_profile"], {"employee_id": "E1014"}, actor="E1012")
+        self.assertEqual((reply["ok"], reply["error"], reply["retryable"]), (False, "ERR_FORBIDDEN", False))
+    
     def test_bad_arguments_become_a_message(self):
         reply = tools.call(tools.READS["find_course"], {"title": "risk"}, actor="E1012")
         self.assertEqual(reply["error"], "BAD_ARGUMENTS")
