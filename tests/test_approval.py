@@ -24,8 +24,13 @@ class TestApprovalGate(unittest.TestCase):
         outcome, _, _ = approval.decide(pending([["E1008"]]), "approve", "E1068")
         self.assertEqual(outcome, "closed")
 
-    # Part 13: type test_two_rounds_in_order here (see the guide).
-
+    def test_two_rounds_in_order(self):
+        p0 = pending([["E1007"], ["E1068"]])
+        outcome, p1, _ = approval.decide(p0, "approve", "E1007")
+        self.assertEqual((outcome, approval.asking(p1)["approvers"]), ("ask", ["E1068"]))
+        outcome, p2, _ = approval.decide(p1, "approve", "E1068")
+        self.assertEqual((outcome, p2["approved_by"]), ("execute", ["E1007", "E1068"]))
+    
     def test_hr_head_cannot_jump_the_queue(self):
         outcome, _, _ = approval.decide(pending([["E1007"], ["E1068"]]), "approve", "E1068")
         self.assertEqual(outcome, "closed")
