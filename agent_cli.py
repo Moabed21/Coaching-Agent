@@ -14,10 +14,7 @@ from pathlib import Path
 from typing import Callable, Literal
 
 ROOT = Path(__file__).resolve().parent
-for place in (ROOT, ROOT / "provided"):  # where the peoplehub package lives
-    if (place / "peoplehub").is_dir():
-        sys.path.insert(0, str(place))
-        break
+sys.path.insert(0, str(ROOT))  # agent/ and peoplehub/ live next to this file
 
 from agent import approval, executor, policy, state as store  # noqa: E402
 from agent.approval import Asking, Pending  # noqa: E402

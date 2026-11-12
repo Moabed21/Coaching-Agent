@@ -11,11 +11,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 ROOT = Path(__file__).resolve().parent.parent
-for place in (ROOT, ROOT / "provided"):
-    if (place / "peoplehub").is_dir():
-        sys.path.insert(0, str(place))
-        break
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT))  # agent/ and peoplehub/ live in the repository root
 
 from peoplehub import core, learning  # noqa: E402
 
