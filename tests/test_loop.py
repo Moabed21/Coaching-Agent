@@ -24,7 +24,11 @@ class TestLoop(FreshDB):
         self.assertEqual(self.sql("SELECT * FROM enrolments"), [])
         self.assertEqual(self.audit("request_enrolment"), [])
 
-    # Part 18: type test_every_call_is_answered_even_with_two_proposals_in_one_turn here (see the guide).
+    def test_every_call_is_answered_even_with_two_proposals_in_one_turn(self):
+        out, messages = self.run_with(FakeModel(calls(tool_call("c1", "request_enrolment", **BOOK),
+                                                      tool_call("c2", "request_enrolment", **BOOK))))
+        self.assertIn("ONE_AT_A_TIME", messages[-1]["content"])
+        self.assertIn("proposal", out)
 
     def test_a_refused_proposal_goes_back_to_the_model(self):
         retired = {"employee_id": "E1012", "course_id": "LD-105", "session_id": "LD-105-S1"}
