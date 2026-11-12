@@ -28,7 +28,12 @@ class TestExecutor(FreshDB):
         self.assertTrue(result["ok"])
         self.assertEqual(self.bookings(), [{"approved_by": "E1008"}])
 
-    # Part 16: type test_one_retry_with_the_same_key_after_a_temporary_failure here (see the guide).
+    def test_one_retry_with_the_same_key_after_a_temporary_failure(self):
+        core.add_fault("request_enrolment", times=1, path=self.db)
+        result = executor.execute(approved(), "E1012")
+        self.assertEqual((result["ok"], result["attempts"]), (True, 2))
+        self.assertEqual([r["outcome"] for r in self.audit("request_enrolment")], ["error", "ok"])
+        self.assertEqual(len(self.bookings()), 1)
 
     def test_gives_up_after_one_retry(self):
         core.add_fault("request_enrolment", times=5, path=self.db)
