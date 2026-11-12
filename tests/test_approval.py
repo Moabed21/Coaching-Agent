@@ -30,7 +30,7 @@ class TestApprovalGate(unittest.TestCase):
         self.assertEqual((outcome, approval.asking(p1)["approvers"]), ("ask", ["E1068"]))
         outcome, p2, _ = approval.decide(p1, "approve", "E1068")
         self.assertEqual((outcome, p2["approved_by"]), ("execute", ["E1007", "E1068"]))
-    
+
     def test_hr_head_cannot_jump_the_queue(self):
         outcome, _, _ = approval.decide(pending([["E1007"], ["E1068"]]), "approve", "E1068")
         self.assertEqual(outcome, "closed")

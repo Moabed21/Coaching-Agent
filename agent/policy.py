@@ -5,13 +5,17 @@ person to approve something the system will refuse, and never make a call it has
 """
 from peoplehub import ApiError, directory, learning
 
+from .approval import Action
+
 REQUIRED = {
-	"request_enrolment": ["employee_id", "course_id", "session_id"],
-	"cancel_enrolment": ["enrolment_id",]
+    "request_enrolment": ["employee_id", "course_id", "session_id"],
+    "cancel_enrolment": ["enrolment_id",]
 }
 
+
 class Refused(Exception):
-	"""The action is not allowed. str(error) is an honest explanation for the user."""
+    """The action is not allowed. str(error) is an honest explanation for the user."""
+
 
 def _cancellation(enrolment_id, actor):
     try:
@@ -34,6 +38,7 @@ def _cancellation(enrolment_id, actor):
             "summary": f"cancel enrolment {enrolment_id} ({booking['course_id']} {booking['title']}, "
                        f"session {booking['session_id']})"}
 
+
 def _budget_note(employee_id, fee, actor):
     """PeopleHub only counts COMPLETED courses against the budget, so it accepts two bookings that
     together go over it. The system will not warn about that; a careful agent does."""
@@ -44,6 +49,7 @@ def _budget_note(employee_id, fee, actor):
         return (f"Note: with your other bookings (QAR {held:,}) this would go over your remaining "
                 f"budget of QAR {profile['remaining_budget_qar']:,}.")
     return ""
+
 
 def _enrolment(employee_id, course_id, session_id, actor):
     check = learning.check_enrolment(employee_id, course_id, actor=actor)
@@ -68,7 +74,7 @@ def _enrolment(employee_id, course_id, session_id, actor):
             "note": _budget_note(employee_id, check["fee_qar"], actor)}
 
 
-def plan(tool, args, actor):
+def plan(tool: str, args: dict, actor: str) -> Action:
     """Check a proposed action and work out who must approve it.
 
     Returns the action as a dict: tool, args, rounds (one list of approver ids per round), summary.
